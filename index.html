@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript SandBox</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <div id="main" class="card">
+        <div class="card-body">
+            <h5 id="task-title" class="test">tasks</h5>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        task 1
+                        <i class="fa-solid fa-house"></i>
+                    </li>
+                    <li class="list-group-item">
+                        task 2
+                        <i class="fa-solid fa-user"></i>
+                    </li>
+                    <li class="list-group-item">
+                        task 3
+                        <i class="fa-solid fa-heart"></i>
+                    </li>
+                    <li class="list-group-item">
+                        task 4
+                    </li>
+                </ul>
+                <button class="clear-tasks mt-3">
+                    delete tasks
+                </button>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+    <main class="main-container">
+        <svg class="svg-container">
+            <defs>
+                <filter id="turbulent-displace" colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%"
+                    height="140%">
+                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1" />
+                    <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+                        <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite"
+                            calcMode="linear" />
+                    </feOffset>
+
+                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1" />
+                    <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+                        <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite"
+                            calcMode="linear" />
+                    </feOffset>
+
+                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="2" />
+                    <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
+                        <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite"
+                            calcMode="linear" />
+                    </feOffset>
+
+                    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="2" />
+                    <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
+                        <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite"
+                            calcMode="linear" />
+                    </feOffset>
+
+                    <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+                    <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+                    <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+
+                    <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="30" xChannelSelector="R"
+                        yChannelSelector="B" />
+                </filter>
+            </defs>
+        </svg>
+
+        <div class="card-container">
+            <div class="inner-container">
+                <div class="border-outer">
+                    <div class="main-card"></div>
+                </div>
+                <div class="glow-layer-1"></div>
+                <div class="glow-layer-2"></div>
+            </div>
+
+            <div class="overlay-1"></div>
+            <div class="overlay-2"></div>
+            <div class="background-glow"></div>
+
+            <div class="content-container">
+                <div class="content-top">
+                    <div class="button-85">
+                        My todo list
+                    </div>
+                    <p class="title">Enter your tasks:</p>
+                    <button class="button-86">New Task</button>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="content-bottom ">
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 1: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 2: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 3: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 4: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 4: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 4: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 4: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 4: Lorem ipsum dolor sit</p>
+                    <p class="scrollbar-glass" style="margin: 7px 0;">task 4: Lorem ipsum dolor sit</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./app.js"></script>
+    <!-- <script src="./main.js" type="module"></script> -->
+
+    <div style="margin-top: 1000px;"></div>
+</body>
+
+</html>
+
