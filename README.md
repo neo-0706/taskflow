@@ -98,9 +98,9 @@ This project was created to practice:
 
 ## 👨‍💻 Author
 
-Developed by **Your Name**
+Developed by **neo-0706**
 
-GitHub: https://github.com/your-username
+GitHub: https://github.com/neo-0706
 
 ---
 
