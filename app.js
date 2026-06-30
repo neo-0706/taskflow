@@ -11,3 +11,9 @@ deleteBtn.forEach(button => {
         button.parentElement.remove();
     })
 })
+
+const addButton = document.querySelector(".button-86");
+
+addButton.addEventListener('click', () => {
+    
+})

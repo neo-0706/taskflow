@@ -10,36 +10,6 @@
 </head>
 
 <body>
-    <!-- <div id="main" class="card">
-        <div class="card-body">
-            <h5 id="task-title" class="test">tasks</h5>
-            <div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        task 1
-                        <i class="fa-solid fa-house"></i>
-                    </li>
-                    <li class="list-group-item">
-                        task 2
-                        <i class="fa-solid fa-user"></i>
-                    </li>
-                    <li class="list-group-item">
-                        task 3
-                        <i class="fa-solid fa-heart"></i>
-                    </li>
-                    <li class="list-group-item">
-                        task 4
-                    </li>
-                </ul>
-                <button class="clear-tasks mt-3">
-                    delete tasks
-                </button>
-            </div>
-        </div>
-    </div> -->
-
-
-
 
     <main class="main-container">
         <svg class="svg-container">
@@ -95,75 +65,87 @@
 
             <div class="content-container">
                 <div class="content-top">
-                    <div class="button-85">
-                        My todo list
+                    <div style="display: flex; justify-content: center;">
+                        <div class="button-85"
+                            style="font-size: 16px; width: 70%;">
+                            My todo list
+                        </div>
                     </div>
                     <p class="title">Enter your tasks:</p>
-                    <button class="button-86">New Task</button>
+
+                    <input class="c-checkbox" type="checkbox" id="checkbox">
+                    <div class="c-formContainer">
+                        <form class="c-form" action="">
+                            <input class="c-form__input" placeholder="Task" type="text" autocomplete="off"
+                                maxlength="80" required>
+                            <label class="c-form__buttonLabel" for="checkbox">
+                                <button class="c-form__button" type="button">add</button>
+                            </label>
+                            <label class="c-form__toggle" for="checkbox" data-title="New Task"></label>
+                        </form>
+                    </div>
                 </div>
 
                 <hr class="divider" />
 
-                <div class="content-bottom ">
+                <!-- لیست تسک‌ها — ul معتبر برای li‌ها -->
+                <ul class="content-bottom" role="list">
                     <li class="scrollbar-glass">
                         <div class="task-box">
-                            <button class="check-btn"></button>
+                            <button class="check-btn" aria-label="complete task"></button>
                             <span class="task-text">Learn JavaScript</span>
                         </div>
-                        <button class="delete-btn">🗑️</button>
-                    </li>
-                   <li class="scrollbar-glass">
-                        <div class="task-box">
-                            <button class="check-btn"></button>
-                            <span class="task-text">Learn python</span>
-                        </div>
-                        <button class="delete-btn">🗑️</button>
+                        <button class="delete-btn" aria-label="delete task">🗑️</button>
                     </li>
                     <li class="scrollbar-glass">
                         <div class="task-box">
-                            <button class="check-btn"></button>
-                            <span class="task-text">Learn c++</span>
+                            <button class="check-btn" aria-label="complete task"></button>
+                            <span class="task-text">Learn Python</span>
                         </div>
-                        <button class="delete-btn">🗑️</button>
+                        <button class="delete-btn" aria-label="delete task">🗑️</button>
                     </li>
                     <li class="scrollbar-glass">
                         <div class="task-box">
-                            <button class="check-btn"></button>
-                            <span class="task-text">Learn django</span>
+                            <button class="check-btn" aria-label="complete task"></button>
+                            <span class="task-text">Learn C++</span>
                         </div>
-                        <button class="delete-btn">🗑️</button>
+                        <button class="delete-btn" aria-label="delete task">🗑️</button>
                     </li>
                     <li class="scrollbar-glass">
                         <div class="task-box">
-                            <button class="check-btn"></button>
-                            <span class="task-text">Learn fastAPI</span>
+                            <button class="check-btn" aria-label="complete task"></button>
+                            <span class="task-text">Learn Django</span>
                         </div>
-                        <button class="delete-btn">🗑️</button>
+                        <button class="delete-btn" aria-label="delete task">🗑️</button>
                     </li>
                     <li class="scrollbar-glass">
                         <div class="task-box">
-                            <button class="check-btn"></button>
+                            <button class="check-btn" aria-label="complete task"></button>
+                            <span class="task-text">Learn FastAPI</span>
+                        </div>
+                        <button class="delete-btn" aria-label="delete task">🗑️</button>
+                    </li>
+                    <li class="scrollbar-glass">
+                        <div class="task-box">
+                            <button class="check-btn" aria-label="complete task"></button>
                             <span class="task-text">Learn DB</span>
                         </div>
-                        <button class="delete-btn">🗑️</button>
+                        <button class="delete-btn" aria-label="delete task">🗑️</button>
                     </li>
                     <li class="scrollbar-glass">
                         <div class="task-box">
-                            <button class="check-btn"></button>
-                            <span class="task-text">Learn rust</span>
+                            <button class="check-btn" aria-label="complete task"></button>
+                            <span class="task-text">Learn Rust</span>
                         </div>
-                        <button class="delete-btn">🗑️</button>
+                        <button class="delete-btn" aria-label="delete task">🗑️</button>
                     </li>
-                </div>
+                </ul>
             </div>
         </div>
     </main>
 
-
     <script src="./app.js"></script>
-    <!-- <script src="./main.js" type="module"></script> -->
 
-    <div style="margin-top: 1000px;"></div>
 </body>
 
 </html>
