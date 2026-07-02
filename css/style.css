@@ -225,7 +225,7 @@ body {
 }
 
 .title {
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 500;
   margin-top: 10px;
 }
@@ -280,7 +280,7 @@ body {
   all: unset;
   width: 100px;
   height: 30px;
-  font-size: 16px;
+  font-size: 12px !important;
   background: transparent;
   border: none;
   position: relative;
@@ -676,7 +676,7 @@ body {
 }
 
 .c-form__toggle::before {
-  font-size: 1.75em;
+  font-size: 1.5em;
   content: attr(data-title);
 }
 

@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "CANAVAR";
+    src:  url("../fonts/CANAVAR.eot");
+    src: url("../fonts/CANAVAR.eot") format("embedded-opentype"),
+     url("../fonts/CANAVAR.woff2") format("woff2"),
+     url("../fonts/CANAVAR.woff") format("woff"),
+     url("../fonts/CANAVAR.ttf") format("truetype");
+}
+
+body {
+    font-family: "CANAVAR" !important;
+}
+
+input, button{
+    font-family: "CANAVAR" !important;
+}
