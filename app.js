@@ -52,6 +52,15 @@ function addTask() {
         return;
     }
 
+    for (const task of taskList.children) {
+        const item = task.querySelector('span').textContent;
+
+        if (item === text) {
+            alert("The task has already been written.");
+            return;
+        }
+    }
+
     const task = {
         id: Date.now(),
         text,
