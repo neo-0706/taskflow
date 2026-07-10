@@ -246,7 +246,10 @@ body {
 
 .task-box {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+  gap: 10px;
 }
 
 .task.completed .check-btn {
@@ -882,20 +885,32 @@ body {
 }
 
 .completed .check-btn {
-      background: #22c55e;
-          border-color: #22c55e;
+  background: #22c55e;
+  border-color: #22c55e;
 
 }
 
 .completed .check-btn::before {
-    content: "✓";
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .completed .task-text {
   text-decoration: line-through;
   color: #888;
   opacity: 0.7;
+}
+
+.task-text {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.delete-btn {
+    flex-shrink: 0;
 }

@@ -1,16 +1,50 @@
-// const checkBtn = document.querySelector('.check-btn');
-
-// checkBtn.addEventListener("click", () => {
-//     task.classList.toggle("completed");
-// });
-
-const taskInput   = document.querySelector('.c-form__input');
-const addButton   = document.querySelector('.c-form__button');
-const form        = document.querySelector('.c-form');
-const taskList    = document.querySelector('.content-bottom');
+const taskInput = document.querySelector('.c-form__input');
+const addButton = document.querySelector('.c-form__button');
+const form = document.querySelector('.c-form');
+const taskList = document.querySelector('.content-bottom');
 const clearButton = document.querySelector('.button-86');
 
+document.addEventListener('DOMContentLoaded', loadTasks);
+
+addButton.addEventListener('click', e => {
+    e.preventDefault();
+    addTask();
+});
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    addTask();
+});
+
+taskInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        addTask();
+    }
+});
+
+clearButton.addEventListener('click', clearAllTasks);
+
+function getTasksFromStorage() {
+    return JSON.parse(localStorage.getItem('tasks')) || [];
+}
+
+function saveTasks(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    taskList.innerHTML = '';
+
+    const tasks = getTasksFromStorage();
+
+    tasks.forEach(task => {
+        taskList.appendChild(createTaskElement(task));
+    });
+}
+
 function addTask() {
+
     const text = taskInput.value.trim();
 
     if (!text) {
@@ -18,35 +52,79 @@ function addTask() {
         return;
     }
 
-    const taskItem = createTaskElement(text);
+    const task = {
+        id: Date.now(),
+        text,
+        completed: false
+    };
 
-    taskList.appendChild(taskItem);
+    const tasks = getTasksFromStorage();
+    tasks.push(task);
+    saveTasks(tasks);
+
+    taskList.appendChild(createTaskElement(task));
+
     taskInput.value = '';
     taskInput.focus();
 }
 
-function createTaskElement(text) {
+function createTaskElement(task) {
+
     const li = document.createElement('li');
-    li.classList.add('scrollbar-glass');
+    li.className = 'scrollbar-glass';
+
+    if (task.completed) {
+        li.classList.add('completed');
+    }
+
+    li.dataset.id = task.id;
 
     li.innerHTML = `
         <div class="task-box">
             <button class="check-btn" aria-label="complete task"></button>
-            <span class="task-text">${escapeHTML(text)}</span>
+            <span class="task-text">${escapeHTML(task.text)}</span>
         </div>
         <button class="delete-btn" aria-label="delete task">🗑️</button>
     `;
 
-// need some changes
+    // Complete Task
     li.querySelector('.check-btn').addEventListener('click', () => {
+
         li.classList.toggle('completed');
+
+        const tasks = getTasksFromStorage();
+
+        const current = tasks.find(t => t.id == task.id);
+
+        if (current) {
+            current.completed = !current.completed;
+            saveTasks(tasks);
+        }
+
     });
- 
+
+    // Delete Task
     li.querySelector('.delete-btn').addEventListener('click', () => {
+
         li.remove();
+
+        let tasks = getTasksFromStorage();
+
+        tasks = tasks.filter(t => t.id != task.id);
+
+        saveTasks(tasks);
+
     });
- 
+
     return li;
+}
+
+function clearAllTasks() {
+
+    taskList.innerHTML = '';
+
+    localStorage.removeItem('tasks');
+
 }
 
 function escapeHTML(str) {
@@ -54,34 +132,3 @@ function escapeHTML(str) {
     div.textContent = str;
     return div.innerHTML;
 }
-
-addButton.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    addTask();
-});
-
-taskInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        addTask();
-    }
-});
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    addTask();
-});
-
-document.querySelectorAll('.content-bottom .scrollbar-glass').forEach(item => {
-    item.querySelector('.check-btn')?.addEventListener('click', () => {
-        item.classList.toggle('completed');
-    });
- 
-    item.querySelector('.delete-btn')?.addEventListener('click', () => {
-        item.remove();
-    });
-});
-
-clearButton.addEventListener('click', () => {
-    taskList.innerHTML = "";
-})
