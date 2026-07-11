@@ -11,9 +11,18 @@ This project focuses on creating a clean, responsive, and visually appealing tas
 * ✅ Mark tasks as completed
 * 🗑️ Delete individual tasks
 * 🧹 Clear all tasks
+* 🔍 Filter tasks (All / Active / Completed) *(New in v2)*
+* 💾 Persistent storage with Local Storage *(New in v2)*
 * 🎨 Modern Glassmorphism UI
 * 📱 Responsive layout
 * ⚡ Built without any frameworks
+
+---
+
+## 🆕 What's New in v2
+
+* **Task filtering** — quickly switch between All, Active, and Completed tasks.
+* **Local Storage persistence** — tasks are now saved in the browser, so your list stays intact after refreshing or closing the page.
 
 ---
 
@@ -86,20 +95,16 @@ This project was created to practice:
 
 ## 💡 Future Improvements
 
-* Save tasks using Local Storage
-* Task filtering (All / Active / Completed)
 * Drag & Drop task sorting
 * Dark / Light mode
 * Due dates and reminders
 * Edit existing tasks
-* Search tasks
 
 ---
 
 ## 👨‍💻 Author
 
 Developed by **neo-0706**
-
 GitHub: https://github.com/neo-0706
 
 ---
