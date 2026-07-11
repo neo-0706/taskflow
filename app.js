@@ -3,8 +3,10 @@ const addButton = document.querySelector('.c-form__button');
 const form = document.querySelector('.c-form');
 const taskList = document.querySelector('.content-bottom');
 const clearButton = document.querySelector('.button-86');
+const filter = document.querySelector('#search');
 
 document.addEventListener('DOMContentLoaded', loadTasks);
+filter.addEventListener('keyup', filterTask);
 
 addButton.addEventListener('click', e => {
     e.preventDefault();
@@ -140,4 +142,18 @@ function escapeHTML(str) {
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+}
+
+function filterTask(e) {
+    const text = e.target.value.toLowerCase();
+
+    document.querySelectorAll('.scrollbar-glass').forEach(task => {
+        const item = task.querySelector('span').textContent.toLowerCase();
+
+        if (item.includes(text)) {
+            task.style.display = 'flex';
+        } else {
+            task.style.display = 'none';
+        }
+    });
 }
